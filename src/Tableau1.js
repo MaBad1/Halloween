@@ -8,9 +8,12 @@ class Tableau1 extends Phaser.Scene{
      */
     preload(){
         //bg 2 (tout au fond et très flou)
-        this.load.image('bg2-terrain-2', 'assets/level/background-2/bg2-terrain-2.png');
-        this.load.image('bg2-tree-2', 'assets/level/background-2/bg2-tree-2.png');
-
+        for(let p=1;p<=3;p++){
+            this.load.image('bg2-terrain-'+p, 'assets/level/background-2/bg2-terrain-'+p+'.png');
+        }
+        for(let q=1;q<=5;q++){
+            this.load.image('bg2-tree-'+q, 'assets/level/background-2/bg2-tree-'+q+'.png');
+        }
         //bg 1 (gris légèrement flou)
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
 
@@ -26,13 +29,14 @@ class Tableau1 extends Phaser.Scene{
         }
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
-        this.load.image('filterFilm1', 'assets/level/filters/film/frame-1.png');
-        this.load.image('filterFilm2', 'assets/level/filters/film/frame-2.png');
-        this.load.image('filterFilm3', 'assets/level/filters/film/frame-3.png');
+        for(let o=1;o<=5;o++){
+            this.load.image('filterFilm'+o, 'assets/level/filters/film/frame-'+o+'.png');
+        }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
-        this.load.image('bg-animation-a', 'assets/level/background-2/bg-animation/bg-animation-a.png');
-
+        for(let s=1;s<=3;s++){
+        this.load.image('bg-animation-'+s, 'assets/level/background-2/bg-animation/bg-animation-'+s+'.png');
+        }
     }
 
     /**
@@ -47,7 +51,18 @@ class Tableau1 extends Phaser.Scene{
          * @type {Phaser.GameObjects.Sprite}
          */
         let bgAnimationA=this.add.sprite(0,0, 'bg-animation-a').setOrigin(0,0);
-
+        this.bganim = this.add.sprite(0, 0, 'filterFilm1').setOrigin(0,0);
+        this.anims.create({
+            key: 'bganim',
+            frames: [
+                {key:'bg-animation-a'},
+                {key:'bg-animation-b'},
+                {key:'bg-animation-c'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.bganim.play('bganim');
         //--------------background 2 (tout au fond et flou)--------------------
 
         /**
@@ -60,15 +75,24 @@ class Tableau1 extends Phaser.Scene{
          * Terrain dans bg2
          * @type {Phaser.GameObjects.Image}
          */
-        let bg2Terrain2=this.add.image(-100,100, 'bg2-terrain-2').setOrigin(0,0);
+        let bg2Terrain2=this.add.image(-150,100, 'bg2-terrain-2').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain2);
+        let bg2Terrain3=this.add.image(-370,50, 'bg2-terrain-3').setOrigin(0,0);
+        this.bg2Container.add(bg2Terrain3);
+        let bg2Terrain1=this.add.image(650,230, 'bg2-terrain-1').setOrigin(0,0);
+        this.bg2Container.add(bg2Terrain1);
         /**
          * Arbre dans bg2
          * @type {Phaser.GameObjects.Image}
          */
-        let bg2Tree2=this.add.image(400,-50, 'bg2-tree-2').setOrigin(0,0);
-        this.bg2Container.add(bg2Tree2);
-        bg2Tree2.angle=-5; //pencher l'arbre de -5 degrès
+        let bg2Tree1=this.add.image(400,-50, 'bg2-tree-1').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree1);
+        bg2Tree1.angle=-5; //pencher l'arbre de -5 degrès
+        let bg2Tree3=this.add.image(710,-50, 'bg2-tree-3').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree3);
+        bg2Tree3.angle=-5;
+
+
 
         //--------------background 1 (gris) --------------------
 
@@ -109,7 +133,7 @@ class Tableau1 extends Phaser.Scene{
          * Terrain 2
          * @type {Phaser.GameObjects.Image}
          */
-        let gMid2=this.add.image(gMid1.x+gMid1.width+1,350, 'gMid').setOrigin(0,0); //on rajoute 1 px pour l'exemple
+        let gMid2=this.add.image(gMid1.x+gMid1.width,350, 'gMid').setOrigin(0,0); //on rajoute 1 px pour l'exemple
         this.groundContainer.add(gMid2);
         /**
          * Terrain 3
@@ -162,6 +186,7 @@ class Tableau1 extends Phaser.Scene{
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimationA.scrollFactorX=0;
         this.filterFilm.scrollFactorX=0;
+        this.bganim.scrollFactorX=0;
         this.bg2Container.scrollFactorX=0.2;
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
