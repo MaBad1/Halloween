@@ -86,7 +86,7 @@ class Tableau1 extends Phaser.Scene{
          */
         let bg2Terrain2=this.add.image(-150,150, 'bg2-terrain-2').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain2);
-        let bg2Terrain3=this.add.image(-380,120, 'bg2-terrain-3').setOrigin(0,0);
+        let bg2Terrain3=this.add.image(-500,120, 'bg2-terrain-3').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain3);
         let bg2Terrain1=this.add.image(650,230, 'bg2-terrain-1').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain1);
@@ -94,7 +94,7 @@ class Tableau1 extends Phaser.Scene{
          * Arbre dans bg2
          * @type {Phaser.GameObjects.Image}
          */
-        let bg2Tree1=this.add.image(400,-200, 'bg2-tree-1').setOrigin(0,0);
+        let bg2Tree1=this.add.image(350,-200, 'bg2-tree-1').setOrigin(0,0);
         this.bg2Container.add(bg2Tree1);
          //pencher l'arbre de -5 degrès
         let bg2Tree3=this.add.image(710,-50, 'bg2-tree-3').setOrigin(0,0);
