@@ -32,6 +32,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gStone2', 'assets/level/ground/g-stone-2.png');
         this.load.image('gStone4', 'assets/level/ground/g-stone-4.png');
         this.load.image('gVineA', 'assets/level/ground/g-vine-a.png');
+        this.load.image('gSpike', 'assets/level/ground/g-spike-1.png');
         for(let d=1;d<=3;d++){
             this.load.image('gTree'+d, 'assets/level/ground/g-tree-'+d+'.png');
         }
@@ -162,7 +163,7 @@ class Tableau1 extends Phaser.Scene{
 
         let gWater=this.add.image(440,420, 'gWater').setOrigin(0,0);
         this.groundContainer.add(gWater);
-        let mushroom=this.add.image(160,380, 'gMushroom1').setOrigin(0,1);
+        let mushroom=this.add.image(160,390, 'gMushroom1').setOrigin(0,1);
         this.groundContainer.add(mushroom);
         let Box=this.add.image(510,370, 'gBox2').setOrigin(0,1);
         this.groundContainer.add(Box);
@@ -170,6 +171,29 @@ class Tableau1 extends Phaser.Scene{
         this.groundContainer.add(Stone1);
         let Stone2=this.add.image(790,410, 'gStone4').setOrigin(0,1);
         this.groundContainer.add(Stone2);
+        let Grass1=this.add.image(400,380, 'g-grass-1').setOrigin(0,1);
+        this.groundContainer.add(Grass1);
+        let Grass2=this.add.image(350,390, 'g-grass-2').setOrigin(0,1);
+        this.groundContainer.add(Grass2);
+        let Grass3=this.add.image(10,400, 'g-grass-3').setOrigin(0,1);
+        this.groundContainer.add(Grass3);
+        let Grass4=this.add.image(130,400, 'g-grass-4').setOrigin(0,1);
+        this.groundContainer.add(Grass4);
+        let Grass5=this.add.image(210,400, 'g-grass-5').setOrigin(0,1);
+        this.groundContainer.add(Grass5);
+        let Grass6=this.add.image(870,400, 'g-grass-5').setOrigin(0,1);
+        this.groundContainer.add(Grass6);
+        let Grass7=this.add.image(770,410, 'g-grass-2').setOrigin(0,1);
+        this.groundContainer.add(Grass7);
+        Grass7.angle=-5;
+
+        let Spike=this.add.image(450,550, 'gSpike').setOrigin(0,1);
+        this.groundContainer.add(Spike);
+        let Spike2=this.add.image(550,550, 'gSpike').setOrigin(0,1);
+        this.groundContainer.add(Spike2);
+        Spike2.flipX=true;
+        Spike.scale=1.2;
+        Spike2.scale=1.2;
 
         /**
          * Arbre
@@ -204,15 +228,15 @@ class Tableau1 extends Phaser.Scene{
         /**
          * De l'herbe en textures qui se répète
          * @type {Phaser.GameObjects.TileSprite}
-         */
         let grass=this.add.tileSprite(0,390,gMid3.x+gMid3.width-40,50,'g-grass-1').setOrigin(0,1)
         this.groundContainer.add(grass);
+         */
         /**
          * encore de l'herbe
          * @type {Phaser.GameObjects.TileSprite}
-         */
         let grass2=this.add.tileSprite(0,390,gMid3.x+gMid3.width-40,50,'g-grass-3').setOrigin(0,1)
         this.groundContainer.add(grass2);
+         */
 
         let gMid4=this.add.image(760,380, 'gLeft').setOrigin(0,0);
         this.groundContainer.add(gMid4);
