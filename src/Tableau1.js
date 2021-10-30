@@ -18,7 +18,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
         this.load.image('bg1-terrain-1', 'assets/level/background-1/bg-terrain-1.png');
         for(let j=1;j<=5;j++){
-            this.load.image('bg1-tree-'+j, 'assets/level/background-2/bg-tree-'+j+'.png');
+            this.load.image('bg-tree-'+j, 'assets/level/background-1/bg-tree-'+j+'.png');
         }
 
         //ground (premier plan noir)
@@ -118,11 +118,20 @@ class Tableau1 extends Phaser.Scene{
          * Terrain
          * @type {Phaser.GameObjects.Image}
          */
-        let bg1Terrain3=this.add.image(-300,200, 'bg1-terrain-3').setOrigin(0,0);
+        let bg1Terrain3=this.add.image(-250,250, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
         let bg1Terrain1=this.add.image(650,300, 'bg1-terrain-1').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain1);
-
+        let bg1Tree1=this.add.image(-30,-20, 'bg-tree-1').setOrigin(0,0);
+        this.bg2Container.add(bg1Tree1);
+        let bg1Tree2=this.add.image(870,-20, 'bg-tree-2').setOrigin(0,0);
+        this.bg2Container.add(bg1Tree2);
+        let bg1Tree3=this.add.image(150,-100, 'bg-tree-3').setOrigin(0,0);
+        this.bg2Container.add(bg1Tree3);
+        bg1Tree1.scale=0.7;
+        bg1Terrain3.scale=0.8;
+        bg1Tree2.scale=0.8;
+        bg1Tree3.scale=0.8;
 
         //-------------ground (premier plan noir)---------------------------
 
@@ -131,44 +140,93 @@ class Tableau1 extends Phaser.Scene{
          * @type {Phaser.GameObjects.Container}
          */
         this.groundContainer=this.add.container(0,0);
+
+        let vine1= this.add.image(600, 20, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine1);
+        let vine2= this.add.image(600, vine1.y+vine1.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine2);
+        let vine3= this.add.image(600, vine2.y+vine2.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine3);
+        let vine4= this.add.image(600, vine3.y+vine3.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine4);
+        let vine5= this.add.image(600, vine4.y+vine4.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine5);
+        let vine6=this.add.image(650,45, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine6);
+        let vine7=this.add.image(vine6.x+4,vine6.y+vine6.height-8, 'gVineA').setOrigin(0,1);
+        vine7.angle+=-5
+        this.groundContainer.add(vine7);
+        let vine8=this.add.image(vine6.x,vine7.y+vine7.height-10, 'gVineA').setOrigin(0,1);
+        vine8.angle+=5
+        this.groundContainer.add(vine8);
+
+        let gWater=this.add.image(440,420, 'gWater').setOrigin(0,0);
+        this.groundContainer.add(gWater);
+        let mushroom=this.add.image(160,380, 'gMushroom1').setOrigin(0,1);
+        this.groundContainer.add(mushroom);
+        let Box=this.add.image(510,370, 'gBox2').setOrigin(0,1);
+        this.groundContainer.add(Box);
+        let Stone1=this.add.image(370,390, 'gStone2').setOrigin(0,1);
+        this.groundContainer.add(Stone1);
+        let Stone2=this.add.image(790,410, 'gStone4').setOrigin(0,1);
+        this.groundContainer.add(Stone2);
+
         /**
          * Arbre
          * @type {Phaser.GameObjects.Image}
          */
-        let tree1=this.add.image(300,350, 'gTree1').setOrigin(0,1);
-        tree1.setTintFill(0xFF0000); // pratique pour dbugger
+        let tree1=this.add.image(840,400, 'gTree1').setOrigin(0,1);
+        tree1.setTintFill(0x000000); // pratique pour dbugger
         this.groundContainer.add(tree1);
+        let tree2=this.add.image(20,400, 'gTree2').setOrigin(0,1);
+        this.groundContainer.add(tree2);
+        let tree3=this.add.image(280,430, 'gTree2').setOrigin(0,1);
+        this.groundContainer.add(tree3);
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
          */
         //ici on va calculer les positions
-        let gMid1=this.add.image(0,350, 'gMid').setOrigin(0,0);
+        let gMid1=this.add.image(-150,380, 'gMid').setOrigin(0,0);
         this.groundContainer.add(gMid1);
         /**
          * Terrain 2
          * @type {Phaser.GameObjects.Image}
          */
-        let gMid2=this.add.image(gMid1.x+gMid1.width,350, 'gMid').setOrigin(0,0); //on rajoute 1 px pour l'exemple
+        let gMid2=this.add.image(gMid1.x+gMid1.width,380, 'gMid').setOrigin(0,0); //on rajoute 1 px pour l'exemple
         this.groundContainer.add(gMid2);
         /**
          * Terrain 3
          * @type {Phaser.GameObjects.Image}
          */
-        let gMid3=this.add.image(gMid2.x+gMid2.width,350, 'gRight').setOrigin(0,0);
+        let gMid3=this.add.image(gMid2.x+gMid2.width,380, 'gRight').setOrigin(0,0);
         this.groundContainer.add(gMid3);
         /**
          * De l'herbe en textures qui se répète
          * @type {Phaser.GameObjects.TileSprite}
          */
-        let grass=this.add.tileSprite(0,370,gMid3.x+gMid3.width-40,50,'g-grass-1').setOrigin(0,1)
+        let grass=this.add.tileSprite(0,390,gMid3.x+gMid3.width-40,50,'g-grass-1').setOrigin(0,1)
         this.groundContainer.add(grass);
         /**
          * encore de l'herbe
          * @type {Phaser.GameObjects.TileSprite}
          */
-        let grass2=this.add.tileSprite(0,370,gMid3.x+gMid3.width-40,50,'g-grass-3').setOrigin(0,1)
+        let grass2=this.add.tileSprite(0,390,gMid3.x+gMid3.width-40,50,'g-grass-3').setOrigin(0,1)
         this.groundContainer.add(grass2);
+
+        let gMid4=this.add.image(760,380, 'gLeft').setOrigin(0,0);
+        this.groundContainer.add(gMid4);
+        let gBridge=this.add.image(420,320, 'gWbridge').setOrigin(0,0);
+        this.groundContainer.add(gBridge);
+        gBridge.scale=0.8;
+        tree1.flipX=true;
+        tree1.angle=-5;
+        tree2.flipX=true;
+        tree3.scale=0.8;
+        mushroom.flipX=true;
+        mushroom.scale=1.1;
+        Box.scale=0.65;
+        Box.angle=5;
         /**
          * filtre type film au premier plan
          * @type {Phaser.GameObjects.Sprite}
