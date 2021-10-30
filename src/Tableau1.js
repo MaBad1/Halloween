@@ -16,6 +16,10 @@ class Tableau1 extends Phaser.Scene{
         }
         //bg 1 (gris légèrement flou)
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
+        this.load.image('bg1-terrain-1', 'assets/level/background-1/bg-terrain-1.png');
+        for(let j=1;j<=5;j++){
+            this.load.image('bg1-tree-'+j, 'assets/level/background-2/bg-tree-'+j+'.png');
+        }
 
         //ground (premier plan noir)
         this.load.image('gLeft', 'assets/level/ground/g-left.png');
@@ -116,6 +120,9 @@ class Tableau1 extends Phaser.Scene{
          */
         let bg1Terrain3=this.add.image(-300,200, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
+        let bg1Terrain1=this.add.image(650,300, 'bg1-terrain-1').setOrigin(0,0);
+        this.bg1Container.add(bg1Terrain1);
+
 
         //-------------ground (premier plan noir)---------------------------
 
