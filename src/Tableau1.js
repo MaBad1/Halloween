@@ -219,6 +219,16 @@ class Tableau1 extends Phaser.Scene{
         let vine8=this.add.image(vine6.x,vine7.y+vine7.height-10, 'gVineA').setOrigin(0,1);
         vine8.angle+=5
         this.groundContainer.add(vine8);
+        let vine9= this.add.image(1940, 20, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine9);
+        let vine10= this.add.image(1940, vine9.y+vine9.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine10);
+        let vine11= this.add.image(1940, vine10.y+vine10.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine11);
+        let vine12= this.add.image(1940, vine11.y+vine11.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine12);
+        let vine13= this.add.image(1940, vine12.y+vine12.height-10, 'gVineA').setOrigin(0,1);
+        this.groundContainer.add(vine13);
 
         let gWater=this.add.image(440,420, 'gWater').setOrigin(0,0);
         this.groundContainer.add(gWater);
