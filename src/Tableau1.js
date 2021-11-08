@@ -469,7 +469,7 @@ class Tableau1 extends Phaser.Scene{
         this.cameras.main.scrollX+=this.speed; // on aurait pu écrire : this.cameras.main.scrollX= this.cameras.main.scrollX + this.speed;
 
         //petit effet de vibrance sur le filtre film au tout premier plan
-        this.filterFilm.setAlpha(Phaser.Math.Between(95,100)/100)
+        this.filterBloody.setAlpha(Phaser.Math.Between(95,100)/100)
     }
 
 
