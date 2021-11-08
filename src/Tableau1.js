@@ -124,11 +124,11 @@ class Tableau1 extends Phaser.Scene{
         let bg1Terrain1=this.add.image(650,300, 'bg1-terrain-1').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain1);
         let bg1Tree1=this.add.image(-30,-20, 'bg-tree-1').setOrigin(0,0);
-        this.bg2Container.add(bg1Tree1);
+        this.bg1Container.add(bg1Tree1);
         let bg1Tree2=this.add.image(870,-20, 'bg-tree-2').setOrigin(0,0);
-        this.bg2Container.add(bg1Tree2);
+        this.bg1Container.add(bg1Tree2);
         let bg1Tree3=this.add.image(150,-100, 'bg-tree-3').setOrigin(0,0);
-        this.bg2Container.add(bg1Tree3);
+        this.bg1Container.add(bg1Tree3);
         bg1Tree1.scale=0.7;
         bg1Terrain3.scale=0.8;
         bg1Tree2.scale=0.8;
