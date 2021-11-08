@@ -389,7 +389,7 @@ class Tableau1 extends Phaser.Scene{
                 {key:'rain2'},
                 {key:'rain3'},
             ],
-            frameRate: 12,
+            frameRate: 13,
             repeat: -1
         });
         this.rainAnim.play('rain');
