@@ -11,7 +11,7 @@ class Tableau1 extends Phaser.Scene{
         for(let p=1;p<=4;p++){
             this.load.image('bg2-terrain-'+p, 'assets/level/background-2/bg2-terrain-'+p+'.png');
         }
-        for(let q=1;q<=5;q++){
+        for(let q=1;q<=3;q++){
             this.load.image('bg2-tree-'+q, 'assets/level/background-2/bg2-tree-'+q+'.png');
         }
         //bg 1 (gris légèrement flou)
@@ -19,7 +19,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('bg1-terrain-4', 'assets/level/background-1/bg-terrain-4.png');
         this.load.image('bg1-terrain-1', 'assets/level/background-1/bg-terrain-1.png');
         this.load.image('bg1Bridge', 'assets/level/background-1/bg-wooden-bridge.png');
-        for(let j=1;j<=5;j++){
+        for(let j=1;j<=3;j++){
             this.load.image('bg-tree-'+j, 'assets/level/background-1/bg-tree-'+j+'.png');
         }
 
@@ -51,21 +51,18 @@ class Tableau1 extends Phaser.Scene{
         }
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
-        for(let o=1;o<=5;o++){
+        for(let o=1;o<=3;o++){
             this.load.image('filterFilm'+o, 'assets/level/filters/film/frame-'+o+'.png');
         }
 
-        for(let a=1;a<=5;a++){
+        for(let a=1;a<=3;a++){
             this.load.image('filterBloody'+a, 'assets/level/filters/bloody/frame'+a+'.png');
         }
 
-        for(let c=1;c<=5;c++){
+        for(let c=1;c<=3;c++){
             this.load.image('rain'+c, 'assets/level/weather/rain/frame'+c+'.png');
         }
 
-        for(let m=1;m<=5;m++){
-            this.load.image('snow'+m, 'assets/level/weather/snow/frame'+m+'.png');
-        }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
         for(let s=1;s<=3;s++){
