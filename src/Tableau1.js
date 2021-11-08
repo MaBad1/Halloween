@@ -38,6 +38,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gSpike', 'assets/level/ground/g-spike-1.png');
         this.load.image('gz1', 'assets/zombies/z3.png');
         this.load.image('gz2', 'assets/zombies/z15.png');
+        this.load.image('gz3', 'assets/zombies/z12.png');
+        this.load.image('gz4', 'assets/zombies/z6.png');
         this.load.image('gFtree1', 'assets/level/ground/g-fellen-tree-1.png');
         for(let d=1;d<=3;d++){
             this.load.image('gTree'+d, 'assets/level/ground/g-tree-'+d+'.png');
@@ -51,6 +53,14 @@ class Tableau1 extends Phaser.Scene{
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
         for(let o=1;o<=5;o++){
             this.load.image('filterFilm'+o, 'assets/level/filters/film/frame-'+o+'.png');
+        }
+
+        for(let a=1;a<=5;a++){
+            this.load.image('filterBloody'+a, 'assets/level/filters/bloody/frame'+a+'.png');
+        }
+
+        for(let d=1;d<=5;d++){
+            this.load.image('rain'+d, 'assets/level/weather/rain/frame'+d+'.png');
         }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
@@ -326,6 +336,8 @@ class Tableau1 extends Phaser.Scene{
         this.groundContainer.add(gz1);
         let gz2=this.add.image(1200,200, 'gz2').setOrigin(0,0);
         this.groundContainer.add(gz2);
+        let gz3=this.add.image(600,250, 'gz3').setOrigin(0,0);
+        this.groundContainer.add(gz3);
 
         gFtree1.angle=5;
         gBridge.scale=0.8;
@@ -338,6 +350,8 @@ class Tableau1 extends Phaser.Scene{
         Box.scale=0.65;
         Box.angle=5;
         gz1.scale=0.8;
+        gz3.scale=0.8;
+
         /**
          * filtre type film au premier plan
          * @type {Phaser.GameObjects.Sprite}
@@ -354,7 +368,35 @@ class Tableau1 extends Phaser.Scene{
             frameRate: 16,
             repeat: -1
         });
-        this.filterFilm.play('film');
+
+        this.rainAnim = this.add.sprite(0, 0, 'rain1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'rain',
+            frames: [
+                {key:'rain1'},
+                {key:'rain2'},
+                {key:'rain3'},
+            ],
+            frameRate: 12,
+            repeat: -1
+        });
+        this.rainAnim.play('rain');
+
+        this.filterBloody = this.add.sprite(0, 0, 'filterBloody1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'blood',
+            frames: [
+                {key:'filterBloody1'},
+                {key:'filterBloody2'},
+                {key:'filterBloody3'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.filterBloody.play('blood');
+
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
@@ -371,6 +413,8 @@ class Tableau1 extends Phaser.Scene{
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimationA.scrollFactorX=0;
         this.filterFilm.scrollFactorX=0;
+        this.filterBloody.scrollFactorX=0;
+        this.rainAnim.scrollFactorX=0;
         this.bganim.scrollFactorX=0;
         this.bg2Container.scrollFactorX=0.8;
         this.bg1Container.scrollFactorX=0.9;
