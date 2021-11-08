@@ -36,6 +36,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gStone5', 'assets/level/ground/g-stone-5.png');
         this.load.image('gVineA', 'assets/level/ground/g-vine-a.png');
         this.load.image('gSpike', 'assets/level/ground/g-spike-1.png');
+        this.load.image('gz1', 'assets/zombies/z3.png');
+        this.load.image('gz2', 'assets/zombies/z15.png');
         this.load.image('gFtree1', 'assets/level/ground/g-fellen-tree-1.png');
         for(let d=1;d<=3;d++){
             this.load.image('gTree'+d, 'assets/level/ground/g-tree-'+d+'.png');
@@ -320,6 +322,10 @@ class Tableau1 extends Phaser.Scene{
         this.groundContainer.add(gFtree1);
         let gMid8=this.add.image(1900,415, 'gLeft').setOrigin(0,0);
         this.groundContainer.add(gMid8);
+        let gz1=this.add.image(950,250, 'gz1').setOrigin(0,0);
+        this.groundContainer.add(gz1);
+        let gz2=this.add.image(1200,200, 'gz2').setOrigin(0,0);
+        this.groundContainer.add(gz2);
 
         gFtree1.angle=5;
         gBridge.scale=0.8;
@@ -331,6 +337,7 @@ class Tableau1 extends Phaser.Scene{
         mushroom.scale=1.1;
         Box.scale=0.65;
         Box.angle=5;
+        gz1.scale=0.8;
         /**
          * filtre type film au premier plan
          * @type {Phaser.GameObjects.Sprite}
