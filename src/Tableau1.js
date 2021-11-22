@@ -41,6 +41,9 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gz3', 'assets/zombies/z12.png');
         this.load.image('gz4', 'assets/zombies/z6.png');
         this.load.image('gFtree1', 'assets/level/ground/g-fellen-tree-1.png');
+        for(let i=1;i<=10;i++){
+            this.load.image('boyidle'+i, 'assets/anime/boy/boy1/idle/idle'+i+'.png');
+        }
         for(let d=1;d<=3;d++){
             this.load.image('gTree'+d, 'assets/level/ground/g-tree-'+d+'.png');
         }
