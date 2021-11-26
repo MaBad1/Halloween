@@ -442,6 +442,18 @@ class Tableau1 extends Phaser.Scene{
         this.idleb1.scale=0.7;
         this.ennemidle1.scale=0.5;
 
+        this.ennemidle2 = this.add.sprite(1110, 140, 'ennemyid1').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'enidle',
+            frames: this.getFrames("ennemyid",10),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.ennemidle2.play('enidle');
+        this.ennemidle2.scale=0.5;
+        this.ennemidle2.flipX=true;
+
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
