@@ -69,10 +69,19 @@ class Tableau1 extends Phaser.Scene{
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
         for(let s=1;s<=3;s++){
-        this.load.image('bg-animation-'+s, 'assets/level/background-2/bg-animation/bg-animation-'+s+'.png');
+            this.load.image('bg-animation-'+s, 'assets/level/background-2/bg-animation/bg-animation-'+s+'.png');
+        }
+        for(let s=1;s<=10;s++){
+            this.load.image('ennemyid'+s, 'assets/anime/enemy1/idle/idle'+s+'.png');
         }
     }
-
+    getFrames(prefix,length){
+        let frames=[];
+        for (let i=1;i<=length;i++){
+            frames.push({key: prefix+i});
+        }
+        return frames;
+    }
     /**
      * Crée la scène
      * TODO élèves : reproduire à l'identique assets/level/00-preview-example/sample1.jpg
@@ -410,6 +419,28 @@ class Tableau1 extends Phaser.Scene{
             repeat: -1
         });
         this.filterBloody.play('blood');
+
+        this.idleb1 = this.add.sprite(310, 100, 'boyidle1').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'bidle',
+            frames: this.getFrames("boyidle",10),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.idleb1.play('bidle');
+
+        this.ennemidle1 = this.add.sprite(710, 140, 'ennemyid1').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'enidle',
+            frames: this.getFrames("ennemyid",10),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.ennemidle1.play('enidle');
+        this.idleb1.scale=0.7;
+        this.ennemidle1.scale=0.5;
 
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
