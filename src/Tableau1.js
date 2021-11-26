@@ -74,6 +74,9 @@ class Tableau1 extends Phaser.Scene{
         for(let s=1;s<=10;s++){
             this.load.image('ennemyid'+s, 'assets/anime/enemy1/idle/idle'+s+'.png');
         }
+        for(let s=1;s<=6;s++){
+            this.load.image('ennemy2id'+s, 'assets/anime/enemy2/idle/idle'+s+'.png');
+        }
     }
     getFrames(prefix,length){
         let frames=[];
@@ -445,14 +448,25 @@ class Tableau1 extends Phaser.Scene{
         this.ennemidle2 = this.add.sprite(1110, 140, 'ennemyid1').setOrigin(0,0);
         console.log(frames)
         this.anims.create({
-            key: 'enidle',
+            key: 'enidle2',
             frames: this.getFrames("ennemyid",10),
             frameRate: 15,
             repeat: -1
         });
-        this.ennemidle2.play('enidle');
+        this.ennemidle2.play('enidle2');
         this.ennemidle2.scale=0.5;
         this.ennemidle2.flipX=true;
+
+        this.ennemidle3 = this.add.sprite(1320, 100, 'ennemy2id1').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'enidle3',
+            frames: this.getFrames("ennemy2id",6),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.ennemidle3.play('enidle3');
+        this.ennemidle3.scale=0.5;
 
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
